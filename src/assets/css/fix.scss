@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One|Squada+One&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Squada One', Arial, sans-serif;
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+html,
+body {
+  touch-action: manipulation;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  overflow-y: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: normal;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 3vh;
+}
+
+.h5,
+h5 {
+  font-size: 3vh;
+}
+
+button,
+button:focus {
+  outline: none;
+}
+
+.textsm {
+  font-size: 1.6vw;
+}
+
+.textmd {
+  font-size: 2vw;
+}
+
+.textlg {
+  font-size: 0.9em;
+}
+
+.white {
+  color: #FFF;
+}
+
+.hidden {
+  display: none !important;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 0.6vw;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #696969;
+  border-radius: 1vw;
+  border: 0px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1vw;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+.filterGray {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+}

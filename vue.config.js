@@ -7,15 +7,37 @@ module.exports = {
   publicPath:PATH,
   // 服务代理
   devServer: {
-    proxy: {
-      '/proxyApi': {
-        target: 'http://dev.xxx.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '/proxyApi': ''
+    devServer: {
+      disableHostCheck: true,
+      proxy: {
+        '/': {
+          target: 'http://xxxx',
+          changeOrigin: true,
+          pathRewrite: {'^/':''},
+          onProxyReq (proxyReq, req, res) {
+            originHost = req.headers['x-forwarded-for']
+            const cookie = req.headers['cookie']
+            if (cookie) {
+              proxyReq.setHeader('cookie', cookie)
+            }
+          },
+          onProxyRes(proxyRes, req, res) {
+            var cookies = proxyRes.headers['set-cookie'];
+            var cookieRegex = /Domain=\.?xxx.com/i;
+            if (cookies) {
+              console.log(proxyRes.headers['set-cookie'])
+              // 将Domian=.xx.xx.com改为本地即可将cookie种在本地
+             let newCookie = cookies.map(v => {
+                return v.replace('Domain=.xxxx', 'Domain=localhost')
+                // return v.replace(cookieRegex, 'Domain=localhost')
+              })
+              delete proxyRes.headers['set-cookie'];
+              proxyRes.headers['set-cookie'] = newCookie; 
+            }
         }
       }
     }
+  }
   },
   // 打包去除注释内容等
   configureWebpack: config => {
